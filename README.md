@@ -40,7 +40,7 @@ The models I used here are CLIP (obviously, https://github.com/openai/CLIP), and
 **Input Text : This is an image of old man, he is wearing glasses.**
 
 <p align="center">
-  <img src="./figures/res155.gif" alt="modelfig" />
+  <img src="./figures/res878.gif" alt="modelfig" />
 </p>
 
 **Input Text : This is an image of young woman, she is african american.**
