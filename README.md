@@ -16,7 +16,8 @@ In general, this could be done with any kind of deterministic generative model, 
 
 This repository contains test.py, that in general takes generative model, latent vector to optimize over latent vector to learn very good matching images.
 
-The models I used here are CLIP (obviously, https://github.com/openai/CLIP), and [FastGAN](https://github.com/odegeasslbc/FastGAN-pytorch). You can get this running by git clone and downloading pre-trained model from [here, I used FFHQ](https://drive.google.com/drive/folders/1nCpr84nKkrs9-aVMET5h8gqFbUYJRPLR) and put it in /models folder.
+The models I used here are CLIP (obviously, https://github.com/openai/CLIP), and [FastGAN](https://github.com/odegeasslbc/FastGAN-pytorch). 
+## Sampled Examples with GAN on FFHQ dataset
 
 <p align="center">
   <img src="./figures/res155.gif" alt="modelfig"/>
@@ -46,3 +47,7 @@ The models I used here are CLIP (obviously, https://github.com/openai/CLIP), and
 **Input Text : This is an image of young woman, she is african american.**
 
 Ethnicity, gender, age, and other features weren't disentangled. They were just "found" by the text prompt, which is really interesting. I also found that if initial latent vector (so initial person I guess...?) is very different from what we are aiming to (such as example 3 in this case), then it is very difficult to learn with small learning rates.
+
+
+## How To Use
+You can get this running immediately by git clone and downloading pre-trained model from [here, I used FFHQ](https://drive.google.com/drive/folders/1nCpr84nKkrs9-aVMET5h8gqFbUYJRPLR) and put it in /models folder. In test.py, everything is fixed with random seed, which will yield same results for all the example text inputs. I tried to make everything very easy and comprehensible! If you have any trouble let me know!
