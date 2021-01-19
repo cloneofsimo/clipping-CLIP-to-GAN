@@ -38,21 +38,29 @@ if __name__ == "__main__":
     emb_txt = perceptor.encode_text(txt_tok.cuda())
     
     perceptor, preprocess = clip.load('ViT-B/32')
+
+    ## Please use cuda ...
+
     device = torch.device('cuda:0')
+    EPOCHS = 10
+    BATCH_SIZE = 10
+    CUTS = 5
+    IM_SIZE = 512
+
+
     noise_dim = 256
     noise = nn.Embedding(1, noise_dim).to(device)
     noise.weight.parameters = torch.randn(1, noise_dim)
     
-    EPOCHS = 10
-    BATCH_SIZE = 10
-    CUTS = 5
-    im_size = 512
     
-    Gen_Model = Generator( ngf=64, nz=noise_dim, nc=3, im_size= im_size )
-    Gen_Model.to(device)
+    ### Define Gen_Model, it can be anything, as long as it is differentable
+
+    Gen_Model = Generator( ngf=64, nz=noise_dim, nc=3, im_size= IM_SIZE)
     ckpt = './models/all_100000.pth'
     checkpoint = torch.load(ckpt, map_location=lambda a,b: a)
     Gen_Model.load_state_dict(checkpoint['g'])
+
+    
     Gen_Model.to(device)
     opt = optim.SGD(noise.parameters(), lr = 1e-1, weight_decay= 1e-5)
     
@@ -68,10 +76,6 @@ if __name__ == "__main__":
            
             gens = Gen_Model(noise.weight)[0]
             cuts = [gens]
-            # for offset in [(randint(0, 40), randint(0, 40)) for _ in range(CUTS)]:
-            #     x, y = offset
-            #     cuts.append(gens[:, :, x:x + 512 - 40, y:y + 512 - 40])
-            #Creates regularizing effect, 
             gens = torch.cat(cuts, dim = 0)
             gens = torch.nn.functional.interpolate(gens, (224,224), mode='bilinear')
             emb_txt = perceptor.encode_text(txt_tok.cuda())
@@ -82,6 +86,3 @@ if __name__ == "__main__":
             loss.backward()
             opt.step()
         
-        
-
-    ## results to gifs, which is, completely useless i know.
