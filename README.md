@@ -14,7 +14,7 @@ More recently, [Ryan Murdock](https://twitter.com/advadnoun) proposed that good 
 
 In general, this could be done with any kind of deterministic generative model, such as GAN, VAE, (I think VQVAE would be really good here too, but the gradient ascent part is still something to implement).
 
-This repository contains test.py, that in general takes generative model, latent vector to optimize over latent vector to learn very good matching images.
+This repository contains test.py, that in general takes generative model and learnable latent vector to find image matching input text.
 
 The models I used here are CLIP (obviously, https://github.com/openai/CLIP), and [FastGAN](https://github.com/odegeasslbc/FastGAN-pytorch). 
 ## Sampled Examples with GAN on FFHQ dataset
