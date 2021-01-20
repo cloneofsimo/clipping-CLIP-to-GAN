@@ -46,6 +46,7 @@ if __name__ == "__main__":
     BATCH_SIZE = 10
     CUTS = 5
     IM_SIZE = 512
+    LR = 1e-1
 
 
     noise_dim = 256
@@ -60,9 +61,10 @@ if __name__ == "__main__":
     checkpoint = torch.load(ckpt, map_location=lambda a,b: a)
     Gen_Model.load_state_dict(checkpoint['g'])
 
-    
+    ###
+
     Gen_Model.to(device)
-    opt = optim.SGD(noise.parameters(), lr = 1e-1, weight_decay= 1e-5)
+    opt = optim.SGD(noise.parameters(), lr = LR, weight_decay= 1e-5)
     
     for epoch in range(EPOCHS):
         
