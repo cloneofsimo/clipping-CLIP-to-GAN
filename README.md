@@ -7,7 +7,7 @@
 
 ## Introduction
 
-Recently, openAI proposed CLIP : multimodal transformer based model that can perform incredible wide-domain zero shot tasks. You can read all about it from [openAI's blog](https://openai.com/blog/clip/) and it's [paper](https://cdn.openai.com/papers/Learning_Transferable_Visual_Models_From_Natural_Language_Supervision.pdf). It i
+Recently, openAI proposed CLIP : multimodal transformer based model that can perform incredible wide-domain zero shot tasks. You can read all about it from [openAI's blog](https://openai.com/blog/clip/) and it's [paper](https://cdn.openai.com/papers/Learning_Transferable_Visual_Models_From_Natural_Language_Supervision.pdf).
 On the other hand, DALL-E, which is generative model, has also been released on the same date, but it is currently not-released and probably end up like GPT-3.
 
 More recently, [Ryan Murdock](https://twitter.com/advadnoun) proposed that good feature visualization should generate some image that matches the text : mainly, he used SIREN as a set of parameters to optimize over and used autograd to learn the best parameters that generates image that matches given set of images.
@@ -50,4 +50,4 @@ Ethnicity, gender, age, and other features weren't disentangled. They were just 
 
 
 ## How To Use
-You can get this running immediately by git clone and downloading pre-trained model from [here, I used FFHQ](https://drive.google.com/drive/folders/1nCpr84nKkrs9-aVMET5h8gqFbUYJRPLR) and put it in /models folder. In test.py, everything is fixed with random seed, which will yield same results for all the example text inputs. I tried to make everything very easy and comprehensible! If you have any trouble let me know!
+You can get this running immediately by git clone and downloading pre-trained model from [here, (test.py used FFHQ)](https://drive.google.com/drive/folders/1nCpr84nKkrs9-aVMET5h8gqFbUYJRPLR) and put it in /models folder. In test.py, everything is fixed with random seed, which will yield same results for all the example text inputs. I tried to make everything very easy and comprehensible! If you have any trouble let me know!
